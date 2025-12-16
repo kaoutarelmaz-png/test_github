@@ -22,7 +22,7 @@ class StagiaireCrudTest extends TestCase
         /*302 = redirection.Dans un CRUD Laravel, après store, on fait souvent return redirect(...)*/
         $response->assertStatus(302); // souvent redirect après store
         /*vérifie si vraiment l'objet a été créé*/
-        $this->assertDatabaseHas('comments.store', [
+        $this->assertDatabaseHas('commants', [
             'name' => 'test1',
             'email' => '3@gmail.com',
             'messager' => 'test',
