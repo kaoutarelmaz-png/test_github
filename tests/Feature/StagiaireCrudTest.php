@@ -15,16 +15,16 @@ class StagiaireCrudTest extends TestCase
         /* $this->post(...) : Laravel simule une requête HTTP POST
         route('stagiaire.store') : récupère l’URL de la route nommée */
         $response = $this->post(route('comments.store'), [
+            'name' => 'test1',
             'email' => '3',
-            'password' => '3',
             'messager' => 'test',
         ]);
         /*302 = redirection.Dans un CRUD Laravel, après store, on fait souvent return redirect(...)*/
         $response->assertStatus(302); // souvent redirect après store
         /*vérifie si vraiment l'objet a été créé*/
         $this->assertDatabaseHas('comments.store', [
+            'name' => 'test1',
             'email' => '3',
-            'password' => '3',
             'messager' => 'test',
         ]);
     }
